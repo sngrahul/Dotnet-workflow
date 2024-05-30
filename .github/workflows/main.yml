@@ -25,10 +25,10 @@ jobs:
                 dotnet build
             - name: Dotnet publish
               run: |
-                dotnet publish -o ${{ vars.artifactpath }}
+                dotnet publish -o ${{ vars.ARTIFACTPATH }}
             - name: upload artifacts
               uses: actions/upload-artifact@v4
               with:
                   name: Dotnet artifact
-                  path: ${{ github.workspace }}/${{ vars.artifactpath }}
+                  path: ${{ github.workspace }}/${{ vars.ARTIFACTPATH }}
                   retention-days: 5
