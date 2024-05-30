@@ -40,7 +40,7 @@ jobs:
 
             - name: Sonar Ends
               run: |
-                dotnet sonarscanner end /d:sonar.token="$${{ vars.sonartoken }}"
+                dotnet sonarscanner end /d:sonar.token="${{ vars.sonartoken }}"
             - name: Dotnet publish
               run: |
                 dotnet publish -o ${{ vars.ARTIFACTPATH }}
