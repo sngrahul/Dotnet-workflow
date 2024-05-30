@@ -22,12 +22,25 @@ jobs:
               with:
                   distribution: 'temurin' 
                   java-version: '17'
+            
+            - name: Download sonar scanner for dotnet
+              run: |
+                dotnet tool install --global dotnet-sonarscanner
             - name: Restore dependencies
               run: |
                 dotnet restore
+            
+            - name: Sonar Begin
+              run: |
+                dotnet sonarscanner begin /k:"SonarIntegration-test" /d:sonar.host.url="$${{ vars.sonarhost}}"" /d:sonar.token="$${{ vars.sonartoken }}"
+             
             - name: dotnet build
               run: |
                 dotnet build
+
+            - name: Sonar Ends
+              run: |
+                dotnet sonarscanner end /d:sonar.token="$${{ vars.sonartoken }}"
             - name: Dotnet publish
               run: |
                 dotnet publish -o ${{ vars.ARTIFACTPATH }}
