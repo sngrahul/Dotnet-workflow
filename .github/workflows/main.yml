@@ -32,7 +32,7 @@ jobs:
             
             - name: Sonar Begin
               run: |
-                dotnet sonarscanner begin /k:"Sonarqubeintegration-test" /d:sonar.host.url="$${{ vars.sonarhost }}" /d:sonar.token="$${{ vars.sonartoken }}"
+                dotnet sonarscanner begin /k:"Sonarqubeintegration-test" /d:sonar.host.url="${{ vars.sonarhost }}" /d:sonar.token="${{ vars.sonartoken }}"
              
             - name: dotnet build
               run: |
