@@ -50,3 +50,4 @@ jobs:
                   name: Dotnet artifact
                   path: ${{ github.workspace }}/${{ vars.ARTIFACTPATH }}
                   retention-days: 5
+           
