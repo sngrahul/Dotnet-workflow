@@ -50,8 +50,13 @@ jobs:
                   name: Dotnet artifact
                   path: ${{ github.workspace }}/${{ vars.ARTIFACTPATH }}
                   retention-days: 5
-            - name: Build and analyze
-              env:
-                SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-                    SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-                  run: mvn -f .github/workflows/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Sonarqubeintegration-test -Dsonar.projectName='Sonarqubeintegration-test'
+            - name: Dotnet Publish
+              run: |
+                dotnet publish -o ${{ vars.ARTIFACTPATH }}
+    
+            - name: upload artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Build-Artifacts
+                  path: ${{ github.workspace  }}/${{ vars.ARTIFACTPATH }}
+                  retention-days: 5
