@@ -32,7 +32,7 @@ jobs:
             
             - name: Sonar Begin
               run: |
-                dotnet sonarscanner begin /k:"SonarIntegration-test" /d:sonar.host.url="$${{ vars.sonarhost}}" /d:sonar.token="$${{ vars.sonartoken }}"
+                dotnet sonarscanner begin /k:"Sonarqubeintegration-test" /d:sonar.host.url="$${{ vars.sonarhost}}"" /d:sonar.token="$${{ vars.sonartoken }}"
              
             - name: dotnet build
               run: |
@@ -50,4 +50,8 @@ jobs:
                   name: Dotnet artifact
                   path: ${{ github.workspace }}/${{ vars.ARTIFACTPATH }}
                   retention-days: 5
-           
+            - name: Build and analyze
+              env:
+                SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+                    SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+                  run: mvn -f .github/workflows/pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Sonarqubeintegration-test -Dsonar.projectName='Sonarqubeintegration-test'
