@@ -60,3 +60,24 @@ jobs:
                   name: Build-Artifacts
                   path: ${{ github.workspace  }}/${{ vars.ARTIFACTPATH }}
                   retention-days: 5
+    Deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        environment: ${{ inputs.environments }}
+        steps:
+            - name: Build backup
+              run: |
+                cd ${{ vars.BACKUP_PATH }}
+                ls -la
+            - name: Backup Artifacts
+              run: |
+                Copy-Item -Path ${{ vars.DEPLOYMENTPATH }}/* -Destination ${{ vars.BACKUP_PATH }} -Force
+            - name: Backup path
+              run: |
+                cd ${{ vars.BACKUP_PATH }}
+                dir
+            - name: Download artifacts
+              uses: actions/download-artifact@v4
+              with:
+                  name: Build-artifacts
+                  path: ${{ vars.DEPLOYMENTPATH }}
