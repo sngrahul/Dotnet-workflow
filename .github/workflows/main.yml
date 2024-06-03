@@ -69,7 +69,7 @@ jobs:
             - name: Build backup
               run: |
                 cd ${{ vars.BACKUP_PATH }}
-                ls -la
+                #ls -la
             - name: Backup Artifacts
               run: |
                 Copy-Item -Path ${{ vars.DEPLOYMENTPATH }}/* -Destination ${{ vars.BACKUP_PATH }} -Force
