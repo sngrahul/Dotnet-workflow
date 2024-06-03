@@ -1,29 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rd12\\Githubrepo\\Dotnet-workflow\\WebApplication2.csproj": {}
+    "C:\\BitBucketRepo\\newtestapplication\\WebApplication2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rd12\\Githubrepo\\Dotnet-workflow\\WebApplication2.csproj": {
+    "C:\\BitBucketRepo\\newtestapplication\\WebApplication2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rd12\\Githubrepo\\Dotnet-workflow\\WebApplication2.csproj",
+        "projectUniqueName": "C:\\BitBucketRepo\\newtestapplication\\WebApplication2.csproj",
         "projectName": "WebApplication2",
-        "projectPath": "C:\\Users\\rd12\\Githubrepo\\Dotnet-workflow\\WebApplication2.csproj",
-        "packagesPath": "C:\\Users\\rd12\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rd12\\Githubrepo\\Dotnet-workflow\\obj\\",
+        "projectPath": "C:\\BitBucketRepo\\newtestapplication\\WebApplication2.csproj",
+        "packagesPath": "C:\\Users\\sachinkv\\.nuget\\packages\\",
+        "outputPath": "C:\\BitBucketRepo\\newtestapplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\rd12\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\sachinkv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net60"
+          "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net60": {
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -34,11 +37,46 @@
         }
       },
       "frameworks": {
-        "net60": {}
-      },
-      "runtimes": {
-        "win7-x86": {
-          "#import": []
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.25, 6.0.25]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
