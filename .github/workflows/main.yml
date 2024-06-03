@@ -82,3 +82,28 @@ jobs:
               with:
                   name: Build-artifacts
                   path: ${{ vars.DEPLOYMENTPATH }}
+            - name: Restart IIS
+              run: |
+                echo "restart IIS"
+
+            - name: check status
+              run: |
+                echo "IIS Status"
+
+    rollback:
+        needs: deploy
+        runs-on: deploy
+        environment: ${{ inputs.environments }}
+        if: failure() && needs.deploy.result == 'failure'
+        steps:
+            - name: Copy Old Artifacts
+              run: |
+                Copy-Item -Path ${{ vars.BACKUP_PATH }}/* -Destination ${{ vars.DEPLOYMENTPATH }} -Force
+            
+            - name: Restart IIS
+              run: |
+                echo "restart IIS"
+            
+            - name: check status
+              run: |
+                echo "IIS Status"
