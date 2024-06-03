@@ -34,9 +34,9 @@ jobs:
               run: |
                dotnet sonarscanner begin /k:"Sonarintergration" /d:sonar.host.url="${{ vars.SONARHOST }}"  /d:sonar.token="${{ secrets.SONARTOKEN }}"
              
-            - name: dotnet build
-              run: |
-                dotnet build
+            #- name: dotnet build
+              #run: |
+                #dotnet build
 
             - name: Sonar Ends
               run: |
