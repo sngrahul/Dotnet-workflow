@@ -62,7 +62,7 @@ jobs:
                   retention-days: 5
     Deploy:
         needs: build
-        runs-on: selfhosted
+        runs-on: self-hosted
         if: ${{ inputs.environments }}
         environment: ${{ inputs.environments }}
         steps:
