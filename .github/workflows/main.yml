@@ -80,7 +80,7 @@ jobs:
             - name: Download artifacts
               uses: actions/download-artifact@v4
               with:
-                  name: Build-artifacts
+                  name: Backup_file_to deployment.txt
                   path: ${{ vars.DEPLOYMENTPATH }}
             - name: Restart IIS
               run: |
@@ -91,7 +91,7 @@ jobs:
                 echo "IIS Status"
 
     rollback:
-        needs: deploy
+        needs: Deploy
         runs-on: self-hosted
         environment: ${{ inputs.environments }}
         if: failure() && needs.deploy.result == 'failure'
