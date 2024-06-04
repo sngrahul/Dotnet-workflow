@@ -59,7 +59,7 @@ jobs:
               with:
                   name: Build-Artifacts
                   path: ${{ github.workspace  }}/${{ vars.ARTIFACTPATH }}
-                  retention-days: 5
+                  retention-days: 30
     Deploy:
         needs: build
         runs-on: self-hosted
@@ -80,7 +80,7 @@ jobs:
             - name: Download artifacts
               uses: actions/download-artifact@v4
               with:
-                  name: C:\Users\rd12\Deploymentpath\Backup_file_to deployment.txt
+                  name: Build-Artifacts
                   path: ${{ vars.DEPLOYMENTPATH }}
             - name: Restart IIS
               run: |
