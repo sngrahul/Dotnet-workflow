@@ -26,9 +26,9 @@ jobs:
             - name: Download sonar scanner for dotnet
               run: |
                 dotnet tool install --global dotnet-sonarscanner
-            #- name: Restore dependencies
-             # run: |
-                #dotnet restore
+            - name: Restore dependencies
+              run: |
+                dotnet restore
             
             - name: Sonar Begin
               run: |
